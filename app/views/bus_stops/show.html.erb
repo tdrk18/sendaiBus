@@ -1,0 +1,26 @@
+<h1><%= @busStop.name %></h1>
+
+<ul>
+    <% @busStop.time_tables.each do |timetable| %>
+        <li>
+            <%= timetable.dow %>
+            <%= timetable.routes %>
+            <%= timetable.destination %>
+            <%= timetable.time %>
+            <%= link_to "[Delete]", bus_stop_time_table_path(timetable.bus_stop_id, timetable.id), method: :delete, data: { confirm: "are you sure?" } %>
+        </li>
+    <% end %>
+    <li>
+        <%= form_for [@busStop, @busStop.time_tables.build] do |b| %>
+            <%= b.label :dow %>
+            <%= b.text_field :dow %>
+            <%= b.label :routes %>
+            <%= b.text_field :routes %>
+            <%= b.label :destination %>
+            <%= b.text_field :destination %>
+            <%= b.label :time %>
+            <%= b.text_field :time %>
+            <%= b.submit %>
+        <% end %>
+    </li>
+</ul>

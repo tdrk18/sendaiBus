@@ -1,0 +1,16 @@
+<h1>Edit</h1>
+
+<%= form_for @busStop do |b| %>
+    <p>
+    <%= b.label :name %>
+    <%= b.text_field :name %>
+    <% if @busStop.errors.any? %>
+        <%= @busStop.errors.messages[:name][0] %>
+    <% end %>
+    </p>
+
+    <p>
+    <%= b.submit %>
+    </p>
+<% end %>
+

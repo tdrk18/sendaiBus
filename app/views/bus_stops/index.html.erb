@@ -1,0 +1,14 @@
+<h1>BusStops</h1>
+
+<ul>
+    <% @busStops.each do |busStop| %>
+        <li>
+        <%= link_to busStop.name, bus_stop_path(busStop.id) %>
+        <%= link_to "[Edit]", edit_bus_stop_path(busStop.id) %>
+        <%= link_to "[DELETE]", bus_stop_path(busStop.id), method: :delete, data: {confirm: "are you sure?"} %>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Add New", new_bus_stop_path %>
+

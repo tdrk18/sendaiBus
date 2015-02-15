@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dow: 1
+  routes: MyString
+  destination: MyString
+  time: MyText
+  busStop_id: 
+
+two:
+  dow: 1
+  routes: MyString
+  destination: MyString
+  time: MyText
+  busStop_id: 
