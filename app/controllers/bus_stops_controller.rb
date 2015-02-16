@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class BusStopsController < ApplicationController
     def index
         @busStops = BusStop.all
@@ -37,6 +39,11 @@ class BusStopsController < ApplicationController
         @busStop = BusStop.find(params[:id])
         @busStop.destroy
         redirect_to bus_stops_path
+    end
+
+    def import
+        BusStop.import(params[:file])
+        redirect_to bus_stops_path, notice: "CSVをインポートしました"
     end
 
 private

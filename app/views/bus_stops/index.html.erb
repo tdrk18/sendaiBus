@@ -12,3 +12,8 @@
 
 <%= link_to "Add New", new_bus_stop_path %>
 
+<%= form_tag import_bus_stops_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "import" %>
+<% end %>
+

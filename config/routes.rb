@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
     resources :bus_stops do
         resources :time_tables
+        collection { post :import }
     end
+
+    # post 'add_csv_bus_stop' => 'bus_stops#csv'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
