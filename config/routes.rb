@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
     resources :bus_stops do
-        resources :time_tables
+        resources :time_tables do
+            collection { post :import }
+        end
         collection { post :import }
     end
 

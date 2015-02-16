@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class TimeTablesController < ApplicationController
     def create
         @busStop = BusStop.find(params[:bus_stop_id])
@@ -9,6 +11,11 @@ class TimeTablesController < ApplicationController
         @timeTable = TimeTable.find(params[:id])
         @timeTable.destroy
         redirect_to bus_stop_path(params[:bus_stop_id])
+    end
+
+    def import
+        TimeTable.import(params[:file], params[:bus_stop_id])
+        redirect_to bus_stop_path(params[:bus_stop_id]), notice: "CSVをインポートしました"
     end
 
 private

@@ -11,6 +11,8 @@
         </li>
     <% end %>
     <li>
+</ul>
+<ul>
         <%= form_for [@busStop, @busStop.time_tables.build] do |b| %>
             <%= b.label :dow %>
             <%= b.text_field :dow %>
@@ -24,3 +26,7 @@
         <% end %>
     </li>
 </ul>
+<%= form_tag import_bus_stop_time_tables_path(@busStop.id), multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "import" %>
+<% end %>
